@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAuth 2.0 Device Grant Flow</title>
+  <style>
+    body{
+      text-align: center;
+      margin: 3rem;
+    }
+    #user_code{
+      letter-spacing: .3rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>[PRODUCT NAME]</h1>
+  <p>
+    Please go to <a href="#" id="verification_url"></a> on your smartphone, 
+    computer, or tablet and enter this code:
+  </p>
+  <p id="user_code">
+    
+  </p>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const verification_url = urlParams.get('verification_url')?? null
+    const user_code = urlParams.get('user_code')?? null
+    document.querySelector('#verification_url').innerText=verification_url;
+    document.querySelector('#verification_url').href=verification_url
+    document.querySelector('#user_code').innerText=user_code;
+  </script>
+</body>
+</html>
